@@ -31,7 +31,7 @@ async fn handler(update: Update) {
         log::info!("Received message from {}", chat_id);
 
         // Указанные значения для вашей группы и темы
-        let target_chat_id = ChatId::new(-1002129124389); // Преобразуйте значение в тип ChatId
+        let target_chat_id = ChatId(-1002129124389); // Преобразуйте значение в тип ChatId
         let target_thread_id = 11;
 
         // Проверка на совпадение chat_id и message_thread_id
