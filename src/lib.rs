@@ -50,18 +50,15 @@ async fn handler(update: Update) {
 
         let text = msg.text().unwrap_or("");
         if text.eq_ignore_ascii_case("/help") {
-            _ = tele.send_message(target_chat_id, &help_mesg); // Измените chat_id на target_chat_id
-                .thread_id(target_thread_id); // Добавьте target_thread_id
+            _ = tele.send_message(target_thread_id, &help_mesg); // Измените chat_id на target_chat_id         
 
         } else if text.eq_ignore_ascii_case("/start") {
             _ = tele.send_message(target_chat_id, &help_mesg); // Измените chat_id на target_chat_id
-                .thread_id(target_thread_id); // Добавьте target_thread_id
             set(&target_chat_id.to_string(), json!(true), None);
             log::info!("Started conversation for {}", target_chat_id);
 
         } else if text.eq_ignore_ascii_case("/restart") {
             _ = tele.send_message(target_chat_id, "Ok, I am starting a new conversation."); // Измените chat_id на target_chat_id
-                .thread_id(target_thread_id); // Добавьте target_thread_id
             set(&target_chat_id.to_string(), json!(true), None);
             log::info!("Restarted conversation for {}", target_chat_id);
 
