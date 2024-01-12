@@ -26,15 +26,15 @@ async fn handler(update: Update) {
 
     if let UpdateKind::Message(msg) = update.kind {
         let chat_id = msg.chat.id;
-        let message_thread_id = msg.message_thread_id; // Добавьте эту строку
+        let thread_id = msg.thread_id; // Добавьте эту строку
         log::info!("Received message from {}", chat_id);
 
         // Указанные значения для вашей группы и темы
-        let target_chat_id = -1002129124389;
-        let target_message_thread_id = 11;
+        let target_chat_id = ChatId::new(-1002129124389); // Преобразуйте значение в тип ChatId
+        let target_thread_id = 11;
 
         // Проверка на совпадение chat_id и message_thread_id
-        if chat_id != target_chat_id || message_thread_id != Some(target_message_thread_id) {
+        if chat_id != target_chat_id || thread_id != Some(target_thread_id) {
             // Действие, если условие не выполняется
             return;
         }
