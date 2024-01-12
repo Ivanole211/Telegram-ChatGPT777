@@ -50,17 +50,17 @@ async fn handler(update: Update) {
 
         let text = msg.text().unwrap_or("");
         if text.eq_ignore_ascii_case("/help") {
-            _ = tele.send_message(chat_id, &help_mesg);
+            _ = tele.send_message(target_chat_id, &help_mesg); // Измените chat_id на target_chat_id
 
         } else if text.eq_ignore_ascii_case("/start") {
-            _ = tele.send_message(chat_id, &help_mesg);
-            set(&chat_id.to_string(), json!(true), None);
-            log::info!("Started converstion for {}", chat_id);
+            _ = tele.send_message(target_chat_id, &help_mesg); // Измените chat_id на target_chat_id
+            set(&target_chat_id.to_string(), json!(true), None);
+            log::info!("Started conversation for {}", target_chat_id);
 
         } else if text.eq_ignore_ascii_case("/restart") {
-            _ = tele.send_message(chat_id, "Ok, I am starting a new conversation.");
-            set(&chat_id.to_string(), json!(true), None);
-            log::info!("Restarted converstion for {}", chat_id);
+            _ = tele.send_message(target_chat_id, "Ok, I am starting a new conversation."); // Измените chat_id на target_chat_id
+            set(&target_chat_id.to_string(), json!(true), None);
+            log::info!("Restarted conversation for {}", target_chat_id);
 
         } else {
             let placeholder = tele
