@@ -1,4 +1,5 @@
 use serde_json::json;
+use tg_flows::ChatId;
 use tg_flows::{listen_to_update, Telegram, Update, UpdateKind, update_handler};
 use openai_flows::{
     chat::{ChatModel, ChatOptions},
