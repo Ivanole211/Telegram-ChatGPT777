@@ -19,8 +19,8 @@ async fn handler(update: Update) {
     logger::init();
     let telegram_token = std::env::var("telegram_token").unwrap();
     let placeholder_text = std::env::var("placeholder").unwrap_or("Typing ...".to_string());
-    let system_prompt = std::env::var("system_prompt").unwrap_or("You are a helpful assistant answering questions on Telegram.".to_string());
-    let help_mesg = std::env::var("help_mesg").unwrap_or("I am your assistant on Telegram. Ask me any question! To start a new conversation, type the /restart command.".to_string());
+    let system_prompt = std::env::var("system_prompt").unwrap_or("Вы помощник в группе telegram который отвечает только на вопросы связанные с повышением эффективности при использовании GPT. Если вопрос не соответствует теме - ответьте что вы не настроены для ответа на этот вопрос и попросите пользователя сформулировать вопрос на тему Повышение эффективности при использовании GPT. Ваш ответ не должен превышать 50 слов.".to_string());
+    let help_mesg = std::env::var("help_mesg").unwrap_or("Я помощник в этой теме. Могу вам помочь?".to_string());
 
     let tele = Telegram::new(telegram_token.to_string());
 
