@@ -50,7 +50,7 @@ async fn handler(update: Update) {
 
         let text = msg.text().unwrap_or("");
         if text.eq_ignore_ascii_case("/help") {
-            _ = tele.send_message(target_chat_id, &help_mesg); // Измените chat_id на target_chat_id         
+            _ = tele.send_message(target_chat_id, &help_mesg).thread_id(target_thread_id);         
 
         } else if text.eq_ignore_ascii_case("/start") {
             _ = tele.send_message(target_chat_id, &help_mesg); // Измените chat_id на target_chat_id
